@@ -1,0 +1,58 @@
+/* General public payment completion screen */
+.general-payment-completion-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh; /* Ensure it fits within the viewport */
+    text-align: center;
+    border: 1px solid #FF428C;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+    background-color: white; /* Ensure consistent background color */
+}
+
+.general-payment-completion-screen h1 {
+    color: #F01D00;
+    font-size: 4.5rem;
+    font-weight: bold;
+    margin-top: 20px; /* Avoid large values to prevent overflow */
+}
+
+.general-payment-completion-order-number {
+    background-color: #FF428C;
+    color: white;
+    padding: 30px 60px; /* Adjust padding for consistent layout */
+    border-radius: 15px;
+    font-size: 3.8rem;
+    margin-bottom: 30px; /* Reduced for better spacing */
+    font-weight: bold;
+}
+
+.general-payment-completion-receipt-button {
+    background-color: #FFEDF4;
+    color: #FF428C;
+    border: none;
+    padding: 20px 60px; /* Adjusted padding */
+    font-size: 2.5rem;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 30px; /* Reduced bottom margin */
+}
+
+.general-payment-completion-receipt-button:hover {
+    background-color: #FFEDF4;
+    color: #FF428C;
+}
+
+.general-payment-completion-countdown {
+    padding-top: 20px; /* Use padding instead of negative margin */
+    font-size: 2rem;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+}

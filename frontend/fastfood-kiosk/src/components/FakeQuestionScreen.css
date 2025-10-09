@@ -1,0 +1,95 @@
+.fake-question-screen {
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+    border: 1px solid #FF428C;
+    border-radius: 15px; 
+    box-sizing: border-box;
+    margin: 20px;
+    height: 90vh; /* Make the screen fill the viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align content to the top */
+    align-items: center; /* Center items horizontally */
+    gap: 20px; /* Add some spacing between elements */
+    
+}
+
+/* New top phrase styling */
+.question-top-text {
+    color: black;
+    font-size: 2rem;
+    margin-top: 150px; /* Adjust top margin to move closer to the top */
+    margin-bottom: 10px; /* Space between the phrase and the heading */
+    line-height: 1.5; /* Adjust line height for better readability */
+    font-weight: bold;
+}
+
+/* Title styling for the question */
+.fake-question-title {
+    color: #FF428C;
+    font-size: 4rem; /* Adjusted font size for the heading */
+    font-weight: bold;
+    line-height: 1.3; /* Adjust line-height for better spacing */
+    margin-top: 30px; /* Space between heading and buttons */
+}
+
+.question-button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Space between buttons */
+    justify-content: flex-start; /* Align buttons closer to the top */
+    width: 100%;
+}
+
+/* Option button styling */
+.question-option-button, .question-help-button {
+    padding: 20px 0;
+    font-size: 2rem; /* Font size for the button */
+    font-weight: bold;
+    color: white;
+    background-color: #FF428C;
+    border: none;
+    border-radius: 12px; /* Slightly more rounded corners */
+    cursor: pointer;
+
+    /* Modify the width here */
+    width: 90%; /* Increase this percentage to make the buttons wider */
+    max-width: 600px; /* Adjust the max width if needed */
+    text-align: center;
+}
+
+/* Styling for the "Get help if needed" button */
+.question-help-button {
+    color: #FF428C; /* Pink text */
+    background-color: #FFEDF4; /* Light pink background */
+}
+
+.question-option-button:hover, .question-help-button:hover {
+    background-color: #FF428C; /* Hover color fix */
+    color: white; /* Fix the hover color for both buttons */
+}
+
+@media (max-width: 768px) {
+    .fake-question-title {
+        font-size: 2.5rem; /* Reduce heading size for smaller screens */
+    }
+
+    .question-option-button, .question-help-button {
+        width: 90%; /* Adjust width for smaller screens */
+        font-size: 1.5rem; /* Smaller font size on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .fake-question-title {
+        font-size: 2rem; /* Further reduce heading size */
+    }
+
+    .question-option-button, .question-help-button {
+        width: 100%; /* Full width buttons on small screens */
+        font-size: 1.2rem;
+    }
+}

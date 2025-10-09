@@ -1,0 +1,97 @@
+.face-recognition-2-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #FF428C;
+    border-radius: 15px;
+    box-sizing: border-box;
+    margin: 20px;
+    position: relative; /* Keep relative for child positioning */
+    overflow: hidden; /* Ensure nothing spills out */
+}
+
+.facerecognition-2-main-heading-Face {
+    font-size: 3.2rem;
+    font-weight: bold;
+    color: #FF428C;
+    margin-top: 10px;
+}
+
+.facerecognition-2-video-container {
+    position: relative;
+    width: 90%;
+    max-width: 900px;
+    aspect-ratio: 4 / 4;
+    margin-bottom: 20px;
+    border: 2px solid black; /* Border around the video */
+    background-color: black;
+}
+
+.facerecognition-2-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.facerecognition-2-video-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.facerecognition-2-overlay-text {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.facerecognition-2-instruction-text {
+    font-size: 2rem;
+    color: black;
+    font-weight: bold;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    white-space: nowrap;
+    overflow: visible;
+    width: 100%;
+    margin: 0 auto 10px; /* Center text horizontally and adjust spacing */
+    text-align: center;
+    visibility: visible;
+    position: absolute; /* Use absolute to position it precisely */
+    bottom: 10px; /* Stick it at the bottom of the screen */
+    left: 50%; 
+    transform: translateX(-50%); /* Center horizontally */
+    z-index: 10; /* Ensure visibility over other elements */
+    margin-bottom: 30px;
+}
+
+.facerecognition-2-recognition-popup {
+    position: absolute;
+    top: 10%; /* Move the popup higher on the screen */
+    left: 50%;
+    transform: translate(-50%, 0); /* Remove vertical centering */
+    background-color: #FF428C;
+    color: white;
+    padding: 40px 60px; /* Increased padding to expand the size */
+    width: 40%; /* Increase the width to make the popup wider */
+    font-size: 2rem; /* Larger font size for better readability */
+    font-weight: bold;
+    border-radius: 15px; /* Increased border radius for smoother corners */
+    text-align: center;
+    z-index: 20; /* Ensure it is on top of other elements */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Add subtle shadow for depth */
+}

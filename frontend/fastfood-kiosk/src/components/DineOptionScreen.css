@@ -1,0 +1,84 @@
+.dine-option-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 87vh;
+    background-color: #fff;
+    border: 1px solid #FF428C;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px;
+}
+
+.dine-option-title {
+    font-size: 5rem;
+    color: #FF428C;
+    font-weight: bold;
+    margin-bottom: 30px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: -100px;
+}
+
+.dine-option-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.dine-option-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 350px;
+    background-color: #FFEDF4;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    margin-top: 50px;
+}
+
+.dine-option-button:hover {
+    transform: scale(1.05);
+}
+
+.dineoption-shopandpackaging {
+    background-color: #FF428C;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.dineoption-icon-image {
+    width: 80px; /* Adjust image size */
+    height: 80px;
+}
+
+.dineoption-option-text {
+    font-size: 3rem;
+    color: #000;
+    font-weight: bold;
+}
+
+/* Back button styling */
+.dine-option-back-button {
+    background-color: #FF428C; /* Pink background */
+    color: white;
+    padding: 20px 40px;
+    border: none;
+    border-radius: 10px;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 50px;
+    white-space: nowrap; /* Ensure text stays on one line */
+}

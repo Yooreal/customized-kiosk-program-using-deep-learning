@@ -1,0 +1,120 @@
+.Elderly-card-payment-screen {
+    text-align: center;
+    border: 1px solid #00BA3C;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px;
+  }
+  
+  /* Title Styling */
+  .Elderly-card-payment-title {
+    font-size: 4.5rem;
+    color: #00BA3C;
+    font-weight: bold;
+    margin-top: 150px; /* Adjust margin as needed */
+    margin-bottom: 70px;
+  }
+  
+  /* Wrapper for the black square */
+  .Elderly-cardpayment-card-slot-wrapper {
+    width: 300px; /* Slightly larger than the card-slot */
+    height: 30px; /* Slightly larger than the card-slot */
+    background-color: black; /* Thin black square */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto; /* Center the wrapper */
+    margin-bottom: 180px;
+    border-radius: 10px;
+    
+  }
+  
+  /* Gradient Card Slot */
+  .Elderly-cardpayment-card-slot {
+    width: 180px;
+    height: 250px;
+    background: linear-gradient(to bottom, #00BA3C, #E6F9EC); /* Gradient */
+    border-radius: 10px; /* Match the rounding */
+    margin-top: 220px;
+  }
+  
+  
+  /* Controls Container */
+  .Elderly-card-payment-controls {
+    margin-top: 50px;
+  }
+  
+  /* Back Button Styling */
+  .Elderly-cardpayment-back-button {
+    background-color: #E6F9EC; /* Light pink background */
+    color: #00BA3C; /* Pink text color */
+    padding: 30px 40px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.8rem; /* Increased size */
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 350px;
+    margin-top: 280px;
+  }
+  
+  /* Card Insert Button Styling */
+  .Elderly-cardpayment-card-insert-button {
+    background-color: #00BA3C; /* Pink background */
+    color: white;
+    padding: 30px 40px; /* Increased size */
+    border: none;
+    border-radius: 10px;
+    font-size: 1.8rem; /* Larger font size */
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 20px;
+  }
+  
+  /* Popup styling with black overlay */
+  .Elderly-cardpayment-card-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001; /* Ensure it appears above the overlay */
+  }
+  
+  /* Black overlay effect */
+  .Elderly-cardpayment-card-popup.dimmed::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black overlay with transparency */
+    z-index: 1000; /* Lower z-index to allow the popup to appear above */
+    pointer-events: none; /* Allow interactions to pass through the overlay */
+  }
+  
+  /* Card Popup Content */
+  .Elderly-cardpayment-card-popup-content {
+    background-color: #00BA3C;
+    color: white;
+    padding: 60px 100px;
+    border-radius: 10px;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1.5;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    z-index: 1002; /* Ensure it appears above the overlay */
+  }
+  
+  
+  /* Font styling inside the card popup */
+  .Elderly-cardpayment-card-popup-content p {
+    font-size: 2rem !important; /* Consistent size for message */
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.5;
+  }

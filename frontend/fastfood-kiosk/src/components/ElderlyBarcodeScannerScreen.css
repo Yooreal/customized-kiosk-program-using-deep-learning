@@ -1,0 +1,175 @@
+/* Container for the barcode scanner page */
+.elderly-barcodescannerscreen-scanner-container {
+  text-align: center;
+  border: 1px solid #00BA3C;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px auto;
+  height: 90vh;
+  width: 100%;
+  max-width: 760px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+/* Header text styling */
+.elderly-barcodescannerscreen-scanner-container h1 {
+  font-size: 4rem;
+  color: #00BA3C;
+  font-weight: bold;
+  margin: 0;
+  padding: 10px 0;
+  text-align: center;
+  line-height: 1.5;
+  position: relative;
+  top: 50px; /* Instead of margin-top */
+}
+
+/* Button to start camera recognition */
+.elderly-barcodescannerscreen-start-scan-button {
+  background-color: #00BA3C;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 15px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  top: 20px; /* Adjusted for alignment */
+}
+
+/* Button to stop the scan */
+.elderly-barcodescannerscreen-stop-scan-container {
+  margin: 10px 0;
+}
+
+.elderly-barcodescannerscreen-stop-scan-button {
+  background-color: #E6F9EC;
+  color: #00BA3C;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 15px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Barcode scanner instructions */
+.elderly-barcodescanner-scanner-instructions {
+  font-size: 2rem;
+  text-align: center;
+  position: relative;
+  top: -20px; /* Replaces negative margin */
+  font-weight: bold;
+}
+
+/* Highlighted text within instructions */
+.elderly-barcodescannerscreen-scanner-highlight {
+  background-color: #FFE500;
+  color: #000;
+  font-weight: bold;
+  padding: 2px 5px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* Barcode reader section */
+#elderly-barcodescanner-reader {
+  width: 100%;
+  max-width: 600px;
+  height: 350px;
+  background-color: #000;
+  border-radius: 0px;
+  margin: 20px 0;
+  position: relative;
+  top: -10px; /* Moves element down instead of margin-bottom */
+}
+
+/* Back and employee call buttons aligned side by side */
+.elderly-barcodescannerscreen-scanner-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  top: -20px; /* Adjust alignment */
+}
+
+/* Back button */
+.elderly-barcodescannerscreen-scanner-back-button {
+  background-color: #E6F9EC;
+  color: #00BA3C;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  cursor: pointer;
+  flex: 1;
+  top: -20px;
+}
+
+/* Employee call button */
+.elderly-barcodescannerscreen-call-employee-button {
+  background-color: #2D76E2;
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  cursor: pointer;
+  flex: 1;
+  top: -20px;
+}
+
+/* Popup overlay for employee call */
+.dimmed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+/* Employee popup content */
+.elderly-barcodescannerscreen-employee-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+  background: #00BA3C;
+  border-radius: 10px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  text-align: center;
+}
+
+/* Message inside employee popup */
+.elderly-barcodescannerscreen-employee-popup-content p {
+  font-size: 1.8rem;
+  margin: 0;
+  line-height: 1.5;
+  color: white;
+  font-weight: bold;
+}
+
+/* Scanner employee popup message */
+.elderly-barcodescannerscreen-scanner-employee-popup-message {
+  font-weight: bold;
+}

@@ -1,0 +1,202 @@
+/* 안 쓰는 코드
+.Elderly-face-recognition-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #FF428C;
+    border-radius: 15px;
+    box-sizing: border-box;
+    margin: 20px;
+    position: relative;
+}
+
+.Elderly-facerecognition-main-heading-Face {
+    font-size: 3.2rem;
+    font-weight: bold;
+    color: #FF428C;
+    margin-top: -20px;
+}
+
+.Elderly-facerecognition-video-container {
+    position: relative;
+    width: 90%;
+    max-width: 900px;
+    aspect-ratio: 4 / 4;
+    margin-bottom: 20px;
+    border: 2px solid black; /* Border around the video *
+    background-color: black;
+}
+
+.Elderly-facerecognition-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.Elderly-facerecognition-video-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.Elderly-facerecognition-overlay-text {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 3.0rem;
+    font-weight: bold;
+}
+
+.Elderly-facerecognition-instruction-text {
+    font-size: 2.0rem;
+    color: black;
+    font-weight: bold;
+    background-color: transparent; /* Ensure background is transparent *
+    border: none; /* Remove any inherited borders *
+    box-shadow: none; /* Remove any possible box shadows *
+    white-space: nowrap; /* Prevent text from wrapping *
+    overflow: visible;   /* Ensure the text is not cut off *
+    width: 100%;         /* Ensure the text takes up the full width of the container *
+    margin-bottom: -10px;
+}
+
+/* Expanded recognition-popup *
+.Elderly-facerecognition-recognition-popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FF428C;
+    color: white;
+    padding: 40px 60px; /* Increased padding to expand the size *
+    width: 40%;         /* Increase the width to make the popup wider *
+    font-size: 2rem;     /* Larger font size for better readability *
+    font-weight: bold;
+    border-radius: 15px; /* Increased border radius for smoother corners *
+    text-align: center;
+    z-index: 10; /* Ensure it is on top of other elements *
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Add subtle shadow for depth *
+}*/
+
+
+/*
+js code :
+import React, { useRef, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import * as blazeface from '@tensorflow-models/blazeface';
+import '@tensorflow/tfjs-backend-webgl';
+import './ElderlyFaceRecognition.css';
+
+
+const ElderlyFaceRecognition = ({ nextPage }) => {
+    const videoRef = useRef(null);
+    const canvasRef = useRef(null);
+    const navigate = useNavigate();
+    const [recognitionComplete, setRecognitionComplete] = useState(false);
+
+    useEffect(() => {
+        const startVideo = async () => {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                const video = videoRef.current;
+                if (video) {
+                    video.srcObject = stream;
+                    video.onloadedmetadata = () => {
+                        video.play();
+                    };
+                }
+            } catch (err) {
+                console.error("Error accessing the camera: ", err);
+            }
+        };
+
+        const detectFaces = async (model) => {
+            if (videoRef.current && canvasRef.current) {
+                const video = videoRef.current;
+                const canvas = canvasRef.current;
+                const ctx = canvas.getContext('2d');
+
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoHeight;
+
+                const predictions = await model.estimateFaces(video, false);
+
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                if (predictions.length > 0) {
+                    predictions.forEach((prediction) => {
+                        const [x1, y1] = prediction.topLeft;
+                        const [x2, y2] = prediction.bottomRight;
+                        const width = x2 - x1;
+                        const height = y2 - y1;
+
+                        ctx.beginPath();
+                        ctx.lineWidth = 4;
+                        ctx.strokeStyle = 'red';
+                        ctx.rect(x1, y1, width, height);
+                        ctx.stroke();
+                    });
+
+                    setRecognitionComplete(true);
+
+                    setTimeout(() => {
+                        navigate(nextPage);
+                    }, 3000); // 3-second delay before navigating to the next page
+                }
+            }
+        };
+
+        const loadModelAndDetect = async () => {
+            const model = await blazeface.load();
+            startVideo();
+
+            videoRef.current.addEventListener('loadeddata', () => {
+                const detectionInterval = setInterval(() => detectFaces(model), 100);
+                
+                // Cleanup interval
+                return () => clearInterval(detectionInterval);
+            });
+        };
+
+        loadModelAndDetect();
+
+        return () => {
+            const video = videoRef.current;
+            if (video && video.srcObject) {
+                const stream = video.srcObject;
+                const tracks = stream.getTracks();
+                tracks.forEach(track => track.stop());
+            }
+        };
+    }, [navigate, nextPage]);
+
+    return (
+        <div className="Elderly-face-recognition-screen">
+            <h1 className="Elderly-facerecognition-main-heading-Face">AI가 얼굴인식을 시작합니다.</h1>
+            <div className="Elderly-facerecognition-video-container">
+                <video ref={videoRef} className="Elderly-facerecognition-video" playsInline />
+                <canvas ref={canvasRef} className="Elderly-facerecognition-video-canvas" />
+                <div className="Elderly-facerecognition-overlay-text">카메라 기능</div>
+            </div>
+            <p className="Elderly-facerecognition-instruction-text">화면을 잠시 응시해 주세요.</p>
+            {recognitionComplete && (
+                <div className="Elderly-facerecognition-recognition-popup">
+                    인식을 완료했습니다.<br />잠시만 기다려주세요.
+                </div>
+            )}
+        </div>
+    );
+};
+
+export default ElderlyFaceRecognition;*/
